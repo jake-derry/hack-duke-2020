@@ -14,19 +14,28 @@ class Track(models.Model):
         for goal_template in self.get_goal_templates():
             Goal.objects.create(title=goal_template.title, description=goal_template.description, student=student)
 
+    def add_new_template(self, title, description='', update=False):
+        template = GoalTemplate(title=title, description=description, track=self)
+        template.save()
+        if update:
+            for student in self.students.all():
+                template.create_new_instance(student=student)
+
+
 
 class Goal(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     student = models.ForeignKey(Student, on_delete=models.CASCADE, null=True)
     completed = models.BooleanField(default=False)
-    def create_from_template(self, template, student):
-        if not (template & student):
-            raise ValueError("Must have both a template and a student")
-        self.objects.create(title=template.title, description=template.description, student=student)
 
 
 class GoalTemplate(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
-    track = models.ForeignKey(Track, on_delete=models.CASCADE, null=True)
+    track = models.ForeignKey(Track, on_delete=models.CASCADE, null=True, related_name='tracks')
+
+    def create_new_instance(self, student):
+        if not (student):
+            raise ValueError("Must have choose a student for this goal")
+        Goal.objects.create(title=self.title, description=self.description, student=student)
