@@ -1,7 +1,5 @@
 from django.db import models
 
-from users.models import Student
-
 
 class Track(models.Model):
     title = models.CharField(max_length=200)
@@ -21,6 +19,8 @@ class Track(models.Model):
             for student in self.students.all():
                 template.create_new_instance(student=student)
 
+
+from users.models import Student
 
 
 class Goal(models.Model):
