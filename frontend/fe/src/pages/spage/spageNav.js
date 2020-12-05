@@ -2,7 +2,7 @@ import React from "react"
 import '../../App.css'
 import {Link} from 'react-router-dom'
 
-export default function CPageNav() {
+export default function SPageNav() {
     
     const navStyle = {
         color: 'black'
@@ -10,13 +10,11 @@ export default function CPageNav() {
 
     return(
         <nav>
-            <h1>Counselor Page</h1>
+            <h1>Student Page</h1>
 
             <ul>
-            <Link style={navStyle} to='/students'>
-                <li>Stuff2</li>
-            </Link>
-            <Link style={navStyle} to='/clogin'>
+           
+            <Link style={navStyle} to='/slogin'>
                 <li>Log Out</li>
             </Link>
             </ul>
