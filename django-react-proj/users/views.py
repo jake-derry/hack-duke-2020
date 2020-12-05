@@ -1,9 +1,9 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import generics, permissions
 
-from users.models import Counselor, Student
-from users.serializers import CounselorSerializer, StudentSerializer
-
+from users.models import Counselor, Student, Goal
+from users.serializers import CounselorSerializer, StudentSerializer, GoalSerializer
 
 class CounselorView(APIView):
     """
@@ -23,3 +23,30 @@ class StudentView(APIView):
         student = Student.objects.get(user=request.user)
         serializer = StudentSerializer(student)
         return Response(serializer.data)
+
+class GoalListCreate(generics.ListCreateAPIView):
+    queryset = Goal.objects.all()
+    serializer_class = GoalSerializer
+
+
+class GoalRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Goal.objects.all()
+    serializer_class = GoalSerializer
+
+
+class StudentGoalListCreate(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = GoalSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return Goal.objects.filter(student=Student.objects.get(user=user))
+
+
+class StudentGoalRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = GoalSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return Goal.objects.filter(student=Student.objects.get(user=user))

@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ffbb2323-0e39-4709-905d-f64a4da5ca86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/goals/migrations/0001_initial.py" beforeDir="false" />
+    <list default="true" id="ffbb2323-0e39-4709-905d-f64a4da5ca86" name="Default Changelist" comment="Avoid circular imports">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/goals/migrations/0002_goal_student.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/goals/migrations/0003_goal_completed.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/goals/migrations/0004_goaltemplate_track.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/goals/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/goals/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/migrations/0002_auto_20201205_1801.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/goals/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/goals/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/goals/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/goals/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/goals/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/goals/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0003_auto_20201205_2058.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +22,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="backend" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="JupyterTrust" id="6a65e60c-f5a9-478b-bb78-177296cf82bb" />
@@ -69,13 +82,43 @@
       <option name="presentableId" value="Default" />
       <updated>1607187496251</updated>
       <workItem from="1607187498035" duration="30000" />
+      <workItem from="1607206318164" duration="1635000" />
     </task>
+    <task id="LOCAL-00001" summary="Moved track from Counselor to student, fixed typo">
+      <created>1607205247233</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607205247233</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Avoid circular imports">
+      <created>1607206073772</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607206073772</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Moved track from Counselor to student, fixed typo" />
+    <MESSAGE value="Avoid circular imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Avoid circular imports" />
   </component>
 </project>
