@@ -25,8 +25,16 @@ SECRET_KEY = '-gn8s)7u@n&sfuhd0v!qhw$a1+gg70e$6y8qr-471tfj)&&gk('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '1.0.0.127.in-addr.arpa']
 
+AUTH_USER_MODEL = 'users.AppUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication'  # currently not used in other components
+    ]
+}
 
 # Application definition
 
@@ -39,7 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'students',
+    'rest_framework.authtoken',
+    'djoser',
+    'users',
+    'goals.apps.GoalsConfig',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +61,22 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+# If any more methods are added, they need to be referenced here
+CORS_ALLOW_METHODS = [
+    'GET',
+    'OPTIONS',
+    'POST',
+    'DELETE',
+    'PUT'
+]
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend"
 ]
 
 ROOT_URLCONF = 'django-react-proj.urls'
@@ -69,6 +96,15 @@ TEMPLATES = [
         },
     },
 ]
+
+# Djoser settings
+DJOSER = {
+    "SEND_ACTIVATION_EMAIL": False,
+    "PASSWORD_RESET_CONFIRM_URL": "#/password/reset/confirm/{uid}/{token}",
+    "USERNAME_RESET_CONFIRM_URL": "#/username/reset/confirm/{uid}/{token}",
+    "ACTIVATION_URL": "#/activate/{uid}/{token}",
+    'CREATE_SESSION_ON_LOGIN': True,
+}
 
 WSGI_APPLICATION = 'django-react-proj.wsgi.application'
 
@@ -116,6 +152,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+CSRF_COOKIE_SECURE = False
+
+CSRF_COOKIE_HTTPONLY = False
+
+SESSION_COOKIE_SECURE = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
