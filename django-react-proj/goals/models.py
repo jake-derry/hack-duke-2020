@@ -20,6 +20,10 @@ class Goal(models.Model):
     description = models.TextField()
     student = models.ForeignKey(Student, on_delete=models.CASCADE, null=True)
     completed = models.BooleanField(default=False)
+    def create_from_template(self, template, student):
+        if not (template & student):
+            raise ValueError("Must have both a template and a student")
+        self.objects.create(title=template.title, description=template.description, student=student)
 
 
 class GoalTemplate(models.Model):

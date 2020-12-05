@@ -1,7 +1,7 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-
+from goals.models import Track
 
 def add_user_profile(user):
     if user.is_counselor:
@@ -46,7 +46,7 @@ class AppUser(AbstractUser):
 
 class Student(models.Model):
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, null=True)
-
+    track = models.ForeignKey(Track, on_delte=models.CASCADE, null=True)
 
 class Counselor(models.Model):
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, null=True)
