@@ -1,8 +1,11 @@
 import React from "react"
-import './App.css';
+import '../../App.css'
 import {Link} from 'react-router-dom'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
-export default function CounselorNav() {
+import Clogin from '../clogin/clogin.js'
+
+export default function HomeNav() {
     
     const navStyle = {
         color: 'black'
@@ -15,12 +18,12 @@ export default function CounselorNav() {
             </Link>
 
             <ul>
-            <Link style={navStyle} to='/Text'>
-                <li>Text</li>
+            <Link style={navStyle} to='/clogin'>
+                <li>Counselor login</li>
             </Link>
 
-            <Link style={navStyle} to='/trial'>
-                <li>trial</li>
+            <Link style={navStyle} to='/slogin'>
+                <li>Student login</li>
             </Link> 
             </ul>
         </nav>
