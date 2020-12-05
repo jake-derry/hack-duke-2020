@@ -10,6 +10,10 @@ class Track(models.Model):
     def get_goal_templates(self):
         return GoalTemplate.objects.filter(track=self)
 
+    def add_all_goals(self, student):
+        for goal_template in self.get_goal_templates():
+            Goal.objects.create(title=goal_template.title, description=goal_template.description, student=student)
+
 
 class Goal(models.Model):
     title = models.CharField(max_length=200)
