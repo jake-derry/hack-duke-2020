@@ -1,5 +1,4 @@
 import React from "react"
-import {Link} from 'react-router-dom'
 
 import Cloginscreen from './cloginscreen'                                         
 import Cpage from '../cpage/cpage.js'
@@ -10,9 +9,9 @@ function Clogin() {
     return (
         <BrowserRouter>
             <div>
-                <Cnav />       
+                <Cloginscreen />       
                 <Switch>
-                    <Route path="/" exact component={Cloginscreen} />
+                    
                     <Route path="/cpage" component = {Cpage} />
                 </Switch>
             </div>

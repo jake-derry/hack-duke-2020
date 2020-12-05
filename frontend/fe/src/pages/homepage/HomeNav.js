@@ -8,16 +8,16 @@ import Clogin from '../clogin/clogin.js'
 export default function HomeNav() {
     
     const navStyle = {
-        color: 'black'
+        color: 'white'
     };
 
     return(
-        <nav>
+        <nav className="hnav">
             <Link style={navStyle} to='/'>
                 <h1>Home</h1>
             </Link>
 
-            <ul>
+            <ul className = "nav-links">
             <Link style={navStyle} to='/clogin'>
                 <li>Counselor login</li>
             </Link>
@@ -26,6 +26,7 @@ export default function HomeNav() {
                 <li>Student login</li>
             </Link> 
             </ul>
+
         </nav>
     );
 }

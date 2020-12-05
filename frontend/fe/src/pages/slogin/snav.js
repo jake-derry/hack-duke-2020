@@ -1,9 +1,9 @@
 import React from "react"
 import '../../App.css'
 import {Link} from 'react-router-dom'
-import Login from './loginform'
+import Login from '../clogin/loginform'
 
-export default function CNav() {
+export default function SNav() {
     
     const navStyle = {
         color: 'black'
@@ -11,12 +11,11 @@ export default function CNav() {
 
     return(
         <nav className = "cloginnav">
-            <h1>Counselor Login</h1>
+            <h1>Student Login</h1>
 
             <ul>
-            <Link style={navStyle} to='/cpage'>
-                <li>Counselor login</li>
-               
+            <Link style={navStyle} to='/spage'>
+                <li>Student login</li>
             </Link>
             </ul>
         </nav>

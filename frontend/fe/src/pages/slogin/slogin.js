@@ -1,10 +1,21 @@
 import React from "react"
 
+import Sloginscreen from './sloginscreen'                                         
+import Spage from '../spage/spage.js'
+import Snav from './snav'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+
 function Slogin() {
     return (
-        <div>
-            <p>This is slogin</p>
-        </div>
+        <BrowserRouter>
+            <div>
+                <Snav />       
+                <Switch>
+                    <Route path="/slogin" exact component={Sloginscreen} />
+                    <Route path="/spage" component = {Spage} />
+                </Switch>
+            </div>
+        </BrowserRouter>
     );
 }
 
