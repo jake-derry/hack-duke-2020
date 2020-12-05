@@ -25,13 +25,13 @@ SECRET_KEY = '-gn8s)7u@n&sfuhd0v!qhw$a1+gg70e$6y8qr-471tfj)&&gk('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '1.0.0.127.in-addr.arpa']
 
 AUTH_USER_MODEL = 'users.AppUser'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        # 'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication'  # currently not used in other components
     ]
 }
@@ -62,10 +62,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-]
-
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    'http://localhost:*',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
