@@ -1,13 +1,17 @@
+import random
+import string
+
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-def add_user_profile(user):
+def add_user_profile(user, code=None):
     if user.is_counselor:
-        Counselor.objects.create(user=user)
+        Counselor.objects.create(user=user,
+                                 code=''.join(random.choice(string.ascii_uppercase + string.digits) for i in range(10)))
     else:
-        Student.objects.create(user=user)
+        Student.objects.create(user=user, counselor=Counselor.objects.get(code=code))
 
 
 class AppUserManager(BaseUserManager):
@@ -23,7 +27,7 @@ class AppUserManager(BaseUserManager):
         user = self.model(username=username, email=email, is_counselor=extra_fields.get("is_counselor"))
         user.set_password(password)
         user.save(using=self._db)
-        add_user_profile(user)
+        add_user_profile(user, extra_fields.get("code"))
         return user
 
     def create_superuser(self, username, email=None, password=None, **extra_fields):
@@ -36,17 +40,20 @@ class AppUser(AbstractUser):
     username = models.CharField(max_length=150, unique=True)
     email = models.EmailField(blank=True)
     is_counselor = models.BooleanField(null=True)
+    code = models.CharField(max_length=10, null=True)
 
     objects = AppUserManager()
 
     EMAIL_FIELD = "email"
     USERNAME_FIELD = "username"
-    REQUIRED_FIELDS = ["email", "is_counselor"]
-
-
-class Student(models.Model):
-    user = models.ForeignKey(AppUser, on_delete=models.CASCADE, null=True)
+    REQUIRED_FIELDS = ["email", "is_counselor", "code"]
 
 
 class Counselor(models.Model):
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, null=True)
+    code = models.CharField(max_length=10, null=True)
+
+
+class Student(models.Model):
+    user = models.ForeignKey(AppUser, on_delete=models.CASCADE, null=True)
+    counselor = models.ForeignKey(Counselor, on_delete=models.CASCADE, null=True)

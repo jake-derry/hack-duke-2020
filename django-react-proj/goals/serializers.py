@@ -7,7 +7,7 @@ from .models import Goal
 class GoalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Goal
-        fields = ('title', 'description')
+        fields = ('title', 'description', 'completed')
 
     def create(self, validated_data):
         """
