@@ -1,26 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 
-import Text from "./Text.js"
-import Trial from "./trial.js"
-import CounselorNav from './CounselorNav.js'
-
+import HomeNav from './pages/homepage/HomeNav.js'
+import Homescreen from './pages/homepage/homescreen.js'
+import Clogin from './pages/clogin/clogin.js'
+import Slogin from './pages/slogin/slogin.js'
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-
+         
 function App() {
-  
+                           
   return (
     <BrowserRouter>
       <div className = "App">
-        <CounselorNav />
+        <HomeNav />
       </div>
       <Switch>
-        <Route path="/" exact component = {Text} />
-        <Route path="/trial" component = {Trial} />
+        <Route path="/" exact component = {Homescreen} />
+        <Route path="/slogin" component = {Slogin} />
+        <Route path="/clogin" component = {Clogin} />
       </Switch>
     </BrowserRouter>
-
-
   );
 }
 
