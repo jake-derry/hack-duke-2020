@@ -51,9 +51,9 @@ class AppUser(AbstractUser):
 
 class Counselor(models.Model):
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, null=True)
-    track = models.ForeignKey(Track, on_delte=models.CASCADE, null=True, related_name='students')
     code = models.CharField(max_length=10, null=True)
 
 class Student(models.Model):
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, null=True)
+    track = models.ForeignKey(Track, on_delete=models.CASCADE, null=True, related_name='students')
     counselor = models.ForeignKey(Counselor, on_delete=models.CASCADE, null=True)
