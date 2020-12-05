@@ -5,24 +5,28 @@ from rest_framework import generics, permissions
 from users.models import Counselor, Student, Goal
 from users.serializers import CounselorSerializer, StudentSerializer, GoalSerializer
 
+
 class CounselorView(APIView):
-    """
-    List all snippets, or create a new snippet.
-    """
     def get(self, request, format=None):
         counselor = Counselor.objects.get(user=request.user)
         serializer = CounselorSerializer(counselor)
         return Response(serializer.data)
 
 
+class CounselorStudentView(APIView):
+    def get(self, request):
+        counselor = Counselor.objects.get(user=request.user)
+        students = counselor.get_students()
+        serializer = StudentSerializer(students, many=True)
+        return Response(serializer.data)
+
+
 class StudentView(APIView):
-    """
-    List all snippets, or create a new snippet.
-    """
     def get(self, request, format=None):
         student = Student.objects.get(user=request.user)
         serializer = StudentSerializer(student)
         return Response(serializer.data)
+
 
 class GoalListCreate(generics.ListCreateAPIView):
     queryset = Goal.objects.all()
