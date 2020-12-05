@@ -8,7 +8,7 @@ class Track(models.Model):
     description = models.TextField()
 
     def get_goal_templates(self):
-        return GoalTemplate.objects.filter(track=self)
+        return self.templates.all()
 
     def add_all_goals(self, student):
         for goal_template in self.get_goal_templates():
@@ -33,9 +33,7 @@ class Goal(models.Model):
 class GoalTemplate(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
-    track = models.ForeignKey(Track, on_delete=models.CASCADE, null=True, related_name='tracks')
+    track = models.ForeignKey(Track, on_delete=models.CASCADE, null=True, related_name='templates')
 
     def create_new_instance(self, student):
-        if not (student):
-            raise ValueError("Must have choose a student for this goal")
         Goal.objects.create(title=self.title, description=self.description, student=student)
