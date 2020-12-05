@@ -4,6 +4,7 @@ import string
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from goals.models import Track, GoalTemplate
 
 
 def add_user_profile(user, code=None):
@@ -58,7 +59,17 @@ class Counselor(models.Model):
 
 
 class Student(models.Model):
-    from goals.models import Track
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, null=True)
     track = models.ForeignKey(Track, on_delete=models.CASCADE, null=True, related_name='students')
     counselor = models.ForeignKey(Counselor, on_delete=models.CASCADE, null=True, related_name='students')
+
+
+def create_new_instance(template, student):
+    Goal.objects.create(title=template.title, description=template.description, student=student)
+
+
+class Goal(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, null=True)
+    completed = models.BooleanField(default=False)
