@@ -3,7 +3,9 @@ from rest_framework.views import APIView
 from rest_framework import generics, permissions
 
 from users.models import Counselor, Student, Goal
-from users.serializers import CounselorSerializer, StudentSerializer, GoalSerializer
+from goals.models import Track
+from users.serializers import CounselorSerializer, StudentSerializer, GoalSerializer, TrackSerializer, CounselorStudentGoalSerializer
+from .permissions import CounselorAccessPermission
 
 
 class CounselorView(APIView):
@@ -34,6 +36,27 @@ class StudentView(APIView):
         return Response(serializer.data)
 
 
+
+class CounselorTrackLC(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = TrackSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        counselor = Counselor.objects.get(user=user)
+        return Track.objects.filter(counselor=counselor)
+
+
+class CounselorTrackRUD(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = TrackSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        counselor = Counselor.objects.get(user=user)
+        return Track.objects.filter(counselor=counselor)
+
+
 class GoalListCreate(generics.ListCreateAPIView):
     queryset = Goal.objects.all()
     serializer_class = GoalSerializer
@@ -60,3 +83,22 @@ class StudentGoalRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         user = self.request.user
         return Goal.objects.filter(student=Student.objects.get(user=user))
+
+      
+class CounselorStudentsList(generics.ListAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = StudentSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return Student.objects.filter(counselor=Counselor.objects.get(user=user))
+
+
+class CounselorStudentGoalsLC(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticated, CounselorAccessPermission]
+    serializer_class = CounselorStudentGoalSerializer
+
+    def get_queryset(self, *args, **kwargs):
+        student = Student.objects.get(id=self.kwargs['pk'])
+        return Goal.objects.filter(student=student)
+
