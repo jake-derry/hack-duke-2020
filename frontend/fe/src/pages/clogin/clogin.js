@@ -4,11 +4,12 @@ import Cloginscreen from './cloginscreen'
 import Cpage from '../cpage/cpage.js' 
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
+import './clogin.css'
+
 function Clogin() {
     return (
         <BrowserRouter>
-            <div>
-                {/*<Cloginscreen /> */}      
+            <div>   
                 <Switch>
                     <Route path='/clogin' component={Cloginscreen} />
                     <Route path="/cpage" component = {Cpage} />

@@ -1,12 +1,12 @@
 import React from "react"
+import StudentLogin from './sloginform'
 
 function Sloginscreen() {
     return (
         <div>
-            <p>This is student login screen</p>
+            <div> <StudentLogin /> </div>
         </div>
     );
-}
+}             
 
 export default Sloginscreen
-
