@@ -62,3 +62,9 @@
   background: rgb(35, 49, 57);
   color: white;
 }
+
+.introtext {
+  color: blue;
+  background-color: orange;
+  border-style: ridge;
+}

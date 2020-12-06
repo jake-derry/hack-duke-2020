@@ -1,10 +1,19 @@
-import React from "react"
+import React from "react" 
+import {Link} from "react-router-dom"
 
 function CPageScreen() {
     return (
         <div>
-            <p>This is counselor page screen</p>
-        </div>
+            <h1>Counselor Page</h1>
+            <ul>
+            <Link to='/students'>
+                <li>Stuff2</li>
+            </Link>
+            <Link to='/clogin'>
+                <li>Log Out</li>
+            </Link>
+            </ul>
+        </div>               
     );  
 }
 

@@ -10,7 +10,7 @@ function Cpage() {
     return (
         <BrowserRouter>
             <div>
-                <CPageNav />
+                { /* <CPageNav /> */}
                 <Switch>
                     <Route path="/cpage" exact component={CPageScreen} />
                     <Route path="/students" component = {Students} />

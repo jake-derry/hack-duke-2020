@@ -1,16 +1,13 @@
 import React from "react"
 import '../../App.css'
 import {Link} from 'react-router-dom'
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
-
-import Clogin from '../clogin/clogin.js'
 
 export default function HomeNav() {
     
     const navStyle = {
         color: 'white'
     };
-
+               
     return(
         <nav className="hnav">
             <Link style={navStyle} to='/'>
