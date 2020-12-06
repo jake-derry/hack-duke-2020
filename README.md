@@ -13,12 +13,14 @@
 ##### How did we build it?
 > We built a Django REST API on the backend that serves calls on the frontend using React. Students and counselors need accounts, and we manage authentification (sign up and log in). Students can enter their goals (e.g what colleges they would like to go through, what grades they want in certain classes) using an intuitive interface and mark these goals once complete. On the other end, counselors can monitor (add/modify) the goals for each individual student and track progress/provide feedback efficiently in real time. Counselors can also assign/customize different tracks based on student performance. School administrations can perform analytics of what students did throughout school to identify personal goals that lead to success for different groups of students. 
 ##### What challenges did we run into?
-> insert challenges
+> - CORS acesss when testing on local host
+> - Frontend API call authentification 
 ##### What accomplishments are we proud of?
 > insert accomplishments
 ##### What did we learn?
 > insert learn
 ##### What's next?
+> - Cloud deployment
 > - Implement a feature where students can flag a goal if they need help and alert their counselor 
 > - Add timelines to student goals
 
