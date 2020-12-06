@@ -38,10 +38,10 @@ export default class Login extends React.Component {
                         <i class="fa fa-lock" aria-hidden="true"></i>
                         <input className="logintext" type="password" name="password" id="password" placeholder="Password" onChange={this.handleChange} />
                     </div>
-                    
+                    <br></br>
                     <div className="submit-group">
                         <Link to='/cpage'>
-                            <input className="button" type="submit" value="LOGIN" />
+                            <input class="btn btn-success" type="submit" value="LOGIN" />
                         </Link>
                     </div>
 

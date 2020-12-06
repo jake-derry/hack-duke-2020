@@ -6,7 +6,7 @@ import './clogin.css'
 function Cloginscreen() {
 
     return (
-        <div className="clogincss">
+        <div>
             <div> <Login /> </div>
         </div>
     );

@@ -1,12 +1,13 @@
 import React from "react"
 import image1 from "./duke.png"
 import '../../App.css'
+import bullseye from '../clogin/bullseye.png'
 
 function Homescreen() {
     return (
         <div className="homecolor">
 
-            <div style={{textAlign: 'center'}} className="introtext">
+            <div style={{textAlign: 'center'}} className="introtext" class="jumbotron">
                 <br></br>
                 <h1>Welcome to our project</h1>
                 <br></br>
@@ -19,34 +20,49 @@ function Homescreen() {
             <div class="padding">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-lg-6">
                             <h2 style={{color: "white"}}>About our site</h2>
                             <hr></hr>
-                            <p class="lead">Students can enter in their goals</p>
-                            <p class="lead">Counselors can look and make adjustments</p>
-                            <p class="lead">Goals assessed in real time</p>
+                            <p class="lead"> Students can enter in their goals</p>
+                            <p class="lead"> Counselors can look and make adjustments</p>
+                            <p class="lead"> Goals assessed in real time</p>
                         </div>
-                        <div class="col-sm-6">
-                            <img src={image1} alt="logo"/>
+                        <div class="col-lg-6">
+                            <img src={bullseye} style={{height: '100%' , width: '60%'}}className="homeimg" alt="logo"/>
                         </div>
                     </div>
                 </div>
             </div>
 
             <br></br>
+            <hr></hr>
+            <br></br>
+            <br></br>
 
             <div class="jumbotron jumbotron-fluid">
-                <h4>Column 1</h4>
-                <hr></hr>
-                Hello
+                <div class="row">
+                    <div class="col-sm">
+                        <h4>Students</h4>
+                        <hr></hr>
+                        <p>Enter in goals</p>
+                        <p>Get feedback</p>
+                    </div>
+                    <div class="col-sm">
+                        <h4>Counselors</h4>
+                        <hr></hr>
+                        <p>Look at student goals in real time</p>
+                        <p>Give feedback</p>
+                    </div>
+                    <div class="col-sm">
+                        <h4>Tracks</h4>
+                        <hr></hr>
+                        <p>Counselors can assign different tracks based on student performance and goals</p>
+                        <p>Customize tracks</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="jumbotron jumbotron-fluid">
-                <h4>Column 2</h4>
-                <hr></hr>
-                Hello 2
-            </div>
-
+            <p>Copyright stuff</p>
 
         </div>
     );
