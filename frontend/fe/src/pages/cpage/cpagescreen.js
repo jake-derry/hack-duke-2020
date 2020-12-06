@@ -1,43 +1,42 @@
 import React from "react" 
+import { Button, Col, Container, ListGroup } from "react-bootstrap";
 import {Link} from "react-router-dom"
 import '../../App.css'
+import ListStudents from "../../components/list_students";
+
+const alertClicked = () => {}
 
 function CPageScreen() {
 
     return (
-        <div className="cpagecss">
-
+        <Container>
             <div class="row" >
                 <div class="col-lg-3 bg-light">
-                    <div class="btn btn-danger">
-                        <p style={{fontWeight: "bold"}}>- Rem Group</p>
-                    </div>
-                    <p class="selectgroup">Class of 2020</p>
-                    <p class="selectgroup">Class of 2021</p>
-                    <p className="selectgroup">Class of 2022</p>
-                    <p className="selectgroup">Class of 2023</p>
-                    <div class="btn btn-success">
-                        <p style={{fontWeight: "bold"}}>+ New Group</p>
-                    </div>
+                  <h2>Groups</h2>
+                  <ListGroup as="ul">
+                  <ListGroup.Item as="li" active>
+                  All
+                  </ListGroup.Item>
+                  <ListGroup.Item as="li">
+                  Class of 2020
+                  </ListGroup.Item>
+                  <ListGroup.Item as="li">Class of 2021</ListGroup.Item>
+                  <ListGroup.Item as="li">
+                  Class of 2022
+                  </ListGroup.Item>
+                  <ListGroup.Item as="li">Class of 2023</ListGroup.Item>
+                  <ListGroup.Item action onClick={alertClicked}>
+                    Add group
+                  </ListGroup.Item>
+                </ListGroup>
                 </div>
-                <div class="col-lg-9 bg-primary">
-                    <Link to='/clogin'>
-                        <li class="btn btn-danger" style={{float: "right", marginRight: "10px", marginTop: '10px'}}>Log Out</li>
-                    </Link>
-                    <div className="cpagecontent">
-                        <h1>Counselor Page</h1>
-                        <hr></hr>
-                        <p>Table of students will be rendered here</p>
-                    </div>
-                    <Link to='/students'>
-                        <li>Students</li>
-                    </Link>
-                  
-                    
+                <div class="col-lg-9">
+                    <h1>Your students</h1>
+                    <ListStudents/>
                 </div>
             </div>
             
-        </div>               
+        </Container>               
     );  
 }
 

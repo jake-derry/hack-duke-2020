@@ -6,6 +6,7 @@ function StudentEntry(props) {
     return (
       <tr>
         <td>{props.counselor}</td>
+        <td><Button href={`/counselor/students/${props.id}/goals`}>See goals</Button></td>
       </tr>
     );  
 }
