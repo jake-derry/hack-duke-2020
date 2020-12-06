@@ -12,6 +12,7 @@ import StudentSignup from './pages/ssignup/ssignup';
 import SPageScreen from './pages/spage/spagescreen';
 import CPageScreen from './pages/cpage/cpagescreen';
 import StudentGoals from './pages/studentgoals/studentgoals';
+import AddTrack from './pages/addTrack/add_track';
          
 function App() {
                            
@@ -33,6 +34,7 @@ function App() {
                 <StudentGoals
                   studentId={props.match.params.studentId} />
               )}/>
+        <Route path="/addTrack" component = {AddTrack}/>
 
       </Switch>          
     </BrowserRouter>
