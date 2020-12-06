@@ -9,7 +9,7 @@ function Spage() {
         <BrowserRouter>
             <div>
                 <Switch>
-                    <Route path="/spage" exact component={SPageScreen} />
+                    {/* <Route path="/spage" exact component={SPageScreen} /> */}
                     <Route path="/slogin" component = {Slogin} />
                 </Switch>
             </div>

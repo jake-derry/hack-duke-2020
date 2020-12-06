@@ -1,31 +1,35 @@
 import React from "react"
 import '../../App.css'
-import {Link} from 'react-router-dom'
+import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 
-export default function HomeNav() {
-    
-    const navStyle = {
-        color: 'white'
-    };
-               
-    return(
-        <nav className="hnav">
-            <Link style={navStyle} to='/'>
-                <h1>Home</h1>
-            </Link>
-
-            <ul className = "nav-links">
-                <Link style={navStyle} to='/clogin'>
-                    <li>Counselor login</li>
-                </Link>
-
-                <Link style={navStyle} to='/slogin'>
-                    <li>Student login</li>
-                </Link> 
-            </ul>
-
-        </nav>
-    );
+export default function HomeNav(props) {
+    return (
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand href="#home">Propel Education</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            {localStorage.getItem('token') === null || 
+              localStorage.getItem('token') === '' ? (
+              <div>
+                {console.log(localStorage.getItem('token'))}
+                <NavDropdown title="Login" id="basic-nav-dropdown" inline>
+                  <NavDropdown.Item href="/slogin">Student</NavDropdown.Item>
+                  <NavDropdown.Item href="/clogin">Counselor</NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown title="Signup" id="basic-nav-dropdown" inline>
+                  <NavDropdown.Item href="/ssignup">Student</NavDropdown.Item>
+                  <NavDropdown.Item href="/csignup">Counselor</NavDropdown.Item>
+                </NavDropdown>
+              </div>
+            ): (
+              <Nav.Link href="/logout">Logout</Nav.Link>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    )
 }
 
 
