@@ -1,14 +1,17 @@
 import React from "react"
-import Login from './loginform'
 import '../../App.css'
 import './clogin.css'
+import Login from '../../components/loginform'
+import {Link} from 'react-router-dom'
+import { Container } from "react-bootstrap";
 
 function Cloginscreen() {
 
     return (
-        <div className="clogincss">
-            <div> <Login /> </div>
-        </div>
+        <Container>
+          <h1>Login</h1>
+          <Login to="/cpage"/>
+        </Container>
     );
 }             
 
