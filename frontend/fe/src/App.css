@@ -56,28 +56,6 @@
   color: white;
 }
 
-.cloginnav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
-  background: rgb(35, 49, 57);
-  color: white;
-}
-
-.cloginnav:hover {
-  color: rgb(235, 235, 255);
-}
-
-.introtext {
-  color: black;
-  background-color: rgb(254, 197, 113);
-}
-
-.introtext:hover {
-  color: blue;
-}
-
 .homecolor {
   background-color: rgba(45, 88, 135, 0.6);
 }
@@ -151,12 +129,12 @@
 }
 
 .hnav h1:hover {
-  color: blue;
+  color: rgb(56, 129, 255);
   font-size: 44px;
 }
 
 .hnav li:hover {
-  color: blue;
+  color: rgb(56, 129, 255);
   font-size: 24px;
 }
 
@@ -168,8 +146,19 @@
   color: white;
 }
 
+.cpagecss p {
+  border-color: blue;
+}
+
 .cpagecss btn-success {
   background-color: blue;
 }
 
+.cpagecontent {
+  color: white;
+}
+
+.cpagecss bg-light {
+  border-color: black;
+}
 
