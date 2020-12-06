@@ -4,7 +4,8 @@ from rest_framework import generics, permissions
 
 from users.models import Counselor, Student, Goal
 from goals.models import Track
-from users.serializers import CounselorSerializer, StudentSerializer, GoalSerializer, TrackSerializer
+from users.serializers import CounselorSerializer, StudentSerializer, GoalSerializer, TrackSerializer, CounselorStudentGoalSerializer
+from .permissions import CounselorAccessPermission
 
 class CounselorView(APIView):
     """
@@ -72,3 +73,23 @@ class StudentGoalRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         user = self.request.user
         return Goal.objects.filter(student=Student.objects.get(user=user))
+
+
+class CounselorStudentsListCreate(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = StudentSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return Student.objects.filter(counselor=Counselor.objects.get(user=user))
+
+
+class CounselorStudentGoalsLC(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticated]  # Should be changed to CounselorAccessPermission once
+    # implemented
+    serializer_class = GoalSerializer  # Should be changed to CounselorStudentGoalSerializer
+    # once implemented
+
+    def get_queryset(self, *args, **kwargs):
+        student = Student.objects.get(id=self.kwargs['pk'])
+        return Goal.objects.filter(student=student)

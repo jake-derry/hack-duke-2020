@@ -73,5 +73,5 @@ def create_new_instance(template, student):
 class Goal(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, null=True)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, null=True, related_name='goals')
     completed = models.BooleanField(default=False)
