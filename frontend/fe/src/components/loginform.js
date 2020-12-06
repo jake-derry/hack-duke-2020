@@ -4,8 +4,9 @@ import { Button, Form } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 
 export default class Login extends React.Component {
-    constructor() {
+    constructor(props) {
         super()
+        this.props = props
         this.state = {
             username: "",
             password: "",
@@ -25,7 +26,7 @@ export default class Login extends React.Component {
 
     renderRedirect() {
       if (this.state.redirect) {
-        return <Redirect to="/cpage" />
+        return <Redirect to={this.props.to} />
       }
     }
 
@@ -47,8 +48,6 @@ export default class Login extends React.Component {
         this.setState({
             [event.target.name]: event.target.value
         })
-        console.log(event.target.name)
-        console.log(event.target.value)
     }
 
     render() {
