@@ -77,7 +77,6 @@ class Goals extends Component {
                 <Card key={item.pk}>
                   <Card.Title>{item.title}</Card.Title>
                   <Card.Body>{item.description}</Card.Body>
-                  <Button variant="primary" onClick={() => this.markComplete(item)}>Mark complete</Button>
                 </Card>
                 ))}
               </div>
