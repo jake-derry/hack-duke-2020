@@ -17,3 +17,4 @@ urlpatterns = [
     path('api/tracks/<int:pk>/edit/', views.CounselorTrackRUD.as_view()),
     path('api/tracks/<int:pk>/templates/', views.CounselorTrackTemplatesLC.as_view()),
     path('api/tracks/<int:pk2>/templates/<int:pk>/', views.CounselorTemplateRUD.as_view()),
+]
