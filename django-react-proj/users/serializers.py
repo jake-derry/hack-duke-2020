@@ -6,7 +6,7 @@ from .models import Student, Counselor, Goal
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
-        fields = ['counselor']
+        fields = ['pk', 'counselor']
 
 
 class CounselorSerializer(serializers.ModelSerializer):
