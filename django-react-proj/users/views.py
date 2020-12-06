@@ -154,6 +154,8 @@ class StudentChooseTrack(APIView):
         track = Track.objects.get(id=id)
         student = Student.objects.get(user=request.user)
         student.track = track
+        for goal in Goal.objects.filter(student=student):
+            goal.delete()
         track.add_all_goals(student=student)
         student.save()
         serializer = StudentTrack(student)
