@@ -1,16 +1,14 @@
 import React from "react"
 import Login from './loginform'
 import {Link} from 'react-router-dom'
+import { Container } from "react-bootstrap";
 
 function Cloginscreen() {
     return (
-        <div>
-            <p>This is counselor login screen</p>
-            <div> <Login /> </div>
-            <Link to='/cpage'>
-                <button type="submit" class="btn btn-success">Submit</button>
-            </Link>
-        </div>
+        <Container>
+          <h1>Login</h1>
+          <Login />
+        </Container>
     );
 }             
 

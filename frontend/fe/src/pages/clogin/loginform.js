@@ -1,31 +1,80 @@
+import axios from "axios";
 import React from "react";
+import { Button, Form } from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 
 export default class Login extends React.Component {
     constructor() {
         super()
         this.state = {
-            email: "",
+            username: "",
             password: "",
+            redirect: false,
         }
         this.handleChange = this.handleChange.bind(this)
+        this.setRedirect = this.setRedirect.bind(this);
+        this.login = this.login.bind(this);
+
+    }
+
+    setRedirect = () => {
+      this.setState({
+        redirect: true
+      })
+    }
+
+    renderRedirect() {
+      if (this.state.redirect) {
+        return <Redirect to="/cpage" />
+      }
+    }
+
+    login() {
+      var apiUrl = "http://127.0.0.1:8000/auth/token/login/"
+      axios.post(apiUrl, {
+        username: this.state.username,
+        password: this.state.password
+      })
+      .then(res => {
+          var data = res.data;
+          localStorage.setItem('token', data.auth_token)
+          this.setRedirect()
+      })
+      .catch(err => {});
     }
 
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         })
+        console.log(event.target.name)
+        console.log(event.target.value)
     }
 
     render() {
         return(
-            <form>
-                <h3>Email</h3>
-                <input type="text" name="username" placeholder="Username" onChange={this.handleChange} />
-                <br></br>
-                <h3>Password</h3>
-                <input type="text" name="password" placeholder="Password" onChange={this.handleChange} />
-                <h3> {this.state.email} {this.state.password} </h3>
-            </form>
+          <div>
+            {this.renderRedirect()}
+            <Form>
+              <Form.Group controlId="formBasicUsername">
+                <Form.Label>Username</Form.Label>
+                <Form.Control name="username" type="username" placeholder="Enter username" 
+                  onChange={this.handleChange}/>
+              </Form.Group>
+
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control name="password" type="password" placeholder="Password" 
+                  onChange={this.handleChange}/>
+              </Form.Group>
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Check me out" />
+              </Form.Group>
+              <Button variant="primary" onClick={this.login}>
+                Submit
+              </Button>
+            </Form>
+          </div>
         )
     }
 }

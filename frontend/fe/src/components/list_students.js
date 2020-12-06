@@ -8,14 +8,14 @@ class ListStudents extends Component {
       students : []
   };
 
-  componentDidMount() {
+  componentDidMount(props) {
 
       let data;
       var apiUrl = "http://127.0.0.1:8000/api/counselors/me/students/"
 
       axios.get(apiUrl, { headers: { 
           'credentials': 'true',
-          'Authorization': 'Token 676bf96e8045d6f80199025c430db56ab6bb5906',
+          'Authorization': 'Token ' + localStorage.getItem('token'), // get rid of this once we have a token
           'Access-Control-Allow-Headers': '*'}})
       .then(res => {
           data = res.data;
