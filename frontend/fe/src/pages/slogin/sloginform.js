@@ -41,10 +41,10 @@ export default class StudentLogin extends React.Component {
                         <i class="fa fa-terminal on fa-square" aria-hidden="true"></i>
                         <input className="logintext" type="text" name="code" id="code" placeholder="Counselor Code" onChange={this.handleChange} />
                     </div>
-                    
+                    <br></br>
                     <div className="submit-group">
                         <Link to='/spage'>
-                            <input className="button" type="submit" value="LOGIN" />
+                            <input class="btn btn-success" type="submit" value="LOGIN" />
                         </Link>
                     </div>
 
