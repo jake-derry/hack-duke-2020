@@ -9,7 +9,7 @@
 ##### What track are we submitting to?
 > Education
 ##### What was our inspiration?
-> Many public high schools around the country are overcrowded, and counselors struggle to support a large number of students at once. They do not have the time and resources to 
+> Many public high schools around the country are overcrowded, and counselors struggle to support a large number of students at once. They do not have the time and resources to track each students progress towards achieving their goals. In fact, counselors often don't know a students individual goals unless a student speaks with a counselor directly. Members of our team went to high schools with over 1000 kids in each grade where forming a personal relationship with counselors is daunting. Furthermore, struggling students at such schools do not have the support they need be monitored and kept on track. Propel Education tackles these important issues in the Education system. Through its platform, students can enter their goals (e.g what colleges they would like to go through, what grades they want in certain classes) using an intuitive interface and mark these goals once complete. On the other end, counselors can monitor the goals for each individual student and track progress efficiently. Counselors can also add/modify goals for students
 ##### How did we build it?
 > build
 ##### What challenges did we run into?
@@ -19,7 +19,7 @@
 ##### What did we learn?
 > learn
 ##### What's next?
-> next
+> System where students can flag a goal if they need help by alerting their counselor, timeline system
 
 
 ### To-do
