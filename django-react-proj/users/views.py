@@ -75,7 +75,7 @@ class StudentGoalRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
         return Goal.objects.filter(student=Student.objects.get(user=user))
 
 
-class CounselorStudentsListCreate(generics.ListCreateAPIView):
+class CounselorStudentsList(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = StudentSerializer
 
