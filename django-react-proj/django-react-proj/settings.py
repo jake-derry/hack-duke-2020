@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'users',
-    'goals.apps.GoalsConfig',
 ]
 
 MIDDLEWARE = [

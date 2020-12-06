@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ffbb2323-0e39-4709-905d-f64a4da5ca86" name="Default Changelist" comment="Avoid circular imports">
+    <list default="true" id="ffbb2323-0e39-4709-905d-f64a4da5ca86" name="Default Changelist" comment="Deleted goals/migrations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/goals/migrations/0002_goal_student.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/goals/migrations/0003_goal_completed.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/goals/migrations/0004_goaltemplate_track.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/goals/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/goals/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/goals/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/goals/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/goals/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/goals/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/goals/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/goals/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/migrations/0003_auto_20201205_2058.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
@@ -28,6 +18,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="JupyterTrust" id="6a65e60c-f5a9-478b-bb78-177296cf82bb" />
   <component name="ProjectId" id="1lFKeYwEHgUUM36Ms1GjxDsbZfF" />
@@ -98,7 +89,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607206073772</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Full API endpoints for viewing and editing student goals, counselor tracks, and templates within tracks">
+      <created>1607279269741</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607279269741</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Deleted goals/migrations">
+      <created>1607279355419</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607279355419</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +124,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Moved track from Counselor to student, fixed typo" />
     <MESSAGE value="Avoid circular imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="Avoid circular imports" />
+    <MESSAGE value="Full API endpoints for viewing and editing student goals, counselor tracks, and templates within tracks" />
+    <MESSAGE value="Deleted goals/migrations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deleted goals/migrations" />
   </component>
 </project>
