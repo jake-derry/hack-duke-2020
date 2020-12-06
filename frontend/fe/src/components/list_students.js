@@ -30,7 +30,6 @@ class ListStudents extends Component {
   render() {
       return (
         <div>
-          <h1>Students</h1>
           <Table striped bordered hover>
             <tbody>
               {this.state.students.map(student => (
