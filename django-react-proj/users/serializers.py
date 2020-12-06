@@ -18,7 +18,7 @@ class CounselorSerializer(serializers.ModelSerializer):
 class GoalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Goal
-        fields = ('title', 'description', 'completed')
+        fields = ('pk', 'title', 'description', 'completed')
 
     def create(self, validated_data):
         """
