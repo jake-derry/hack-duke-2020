@@ -9,7 +9,11 @@ export default function HomeNav(props) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
+                <NavDropdown title="Home" id="basic-nav-dropdown" inline>
+                  <NavDropdown.Item href="/spage">Student</NavDropdown.Item>
+                  <NavDropdown.Item href="/cpage">Counselor</NavDropdown.Item>
+                </NavDropdown>
+            {/* <Nav.Link href="/">Home</Nav.Link> */}
             {localStorage.getItem('token') === null || 
               localStorage.getItem('token') === '' ? (
               <div>

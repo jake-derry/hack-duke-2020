@@ -26,6 +26,7 @@ function CPageScreen() {
                     </Link>
                     <div className="cpagecontent">
                         <h1>Counselor Page</h1>
+                        <hr></hr>
                         <p>Table of students will be rendered here</p>
                     </div>
                     <Link to='/students'>
@@ -35,8 +36,6 @@ function CPageScreen() {
                     
                 </div>
             </div>
-
-            <footer>Counselor Page</footer>
             
         </div>               
     );  
