@@ -138,6 +138,7 @@ class CounselorGoalRUD(generics.RetrieveUpdateDestroyAPIView):
         student = Student.objects.get(id=self.kwargs['pk2'])
         return Goal.objects.filter(student=student)
 
+
 class StudentChooseTrack(APIView):
 
     def get(self, request):
@@ -145,8 +146,10 @@ class StudentChooseTrack(APIView):
         serializer = StudentTrack(student)
         return Response(serializer.data)
 
-    def patch(self, request, **validated_data):
-        track = Track.objects.get(track=validated_data['track'])
+
+    def patch(self, request):
+        payload = json.loads(request.body)
+        track = Track.objects.get(track=payload['track'])
         student = Student.objects.get(user=request.user)
         student.track = track
         serializer = StudentTrack(student)
