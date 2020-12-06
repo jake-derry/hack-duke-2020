@@ -4,6 +4,7 @@ import {Link} from "react-router-dom"
 import '../../App.css'
 import ListStudents from "../../components/list_students";
 import TrackListGroup from "../../components/tracks_list_group";
+import CounselorCode from "../../components/counselor_code";
 
 const alertClicked = () => {}
 
@@ -34,7 +35,8 @@ render() {
                   <h2>Groups</h2>
                   {groups}
                   <h2>Your code</h2>
-                  
+                  <p> Share the code below with your students to link your account</p>
+                  <CounselorCode/>
                 </div>
                 <div class="col-lg-9">
                     <h1>Your students</h1>
