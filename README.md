@@ -21,7 +21,7 @@
 > - Setting up local Django and React development environment
 > - Google cloud deployment
 ##### What accomplishments are we proud of?
-> insert accomplishments
+> Creating a working web application! We have learned so much over the course of the weekend.
 ##### What did we learn?
 > - Web development! Many of our teams members came in with no prior experience (first hackathon), so Django and React were completely new. 
 > - How to setup a frontend to function and communicate with a backend REST API. 
