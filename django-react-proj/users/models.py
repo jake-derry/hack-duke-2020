@@ -3,9 +3,7 @@ import string
 
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
-#from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
-from goals.models import Track, GoalTemplate
 
 
 def add_user_profile(user, code=None):
@@ -54,10 +52,30 @@ class AppUser(AbstractUser):
 class Counselor(models.Model):
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, null=True)
     code = models.CharField(max_length=10, null=True)
-    tracks = models.ManyToManyField(Track, related_name="counselor")
 
     def get_students(self):
         return self.students.all()
+
+
+class Track(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    counselor = models.ForeignKey(Counselor, on_delete=models.CASCADE, null=True, related_name="tracks")
+
+    def get_goal_templates(self):
+        return self.templates.all()
+
+    def add_all_goals(self, student):
+        for goal_template in self.get_goal_templates():
+            create_new_instance(goal_template, student)
+
+    def add_new_template(self, title, description='', update=True):
+        template = GoalTemplate(title=title, description=description, track=self)
+        template.save()
+        if update:
+            for student in self.students.all():
+                create_new_instance(template=template, student=student)
+        return template
 
 
 class Student(models.Model):
@@ -75,3 +93,8 @@ class Goal(models.Model):
     description = models.TextField()
     student = models.ForeignKey(Student, on_delete=models.CASCADE, null=True, related_name='goals')
     completed = models.BooleanField(default=False)
+
+class GoalTemplate(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    track = models.ForeignKey(Track, on_delete=models.CASCADE, null=True, related_name='templates')
