@@ -33,10 +33,3 @@
 > - Cloud deployment
 > - Implement a feature where students can flag a goal if they need help and alert their counselor 
 > - Add timelines to student goals
-
-### To-do
-- Video demo
-  - You **must include "this is our HackDuke 2020 project"** at some point in your video
-  - Explain the overview/purpose of your project
-  - Talk about the development and process of your submission
-  - Detail any further work or expansion of your project
