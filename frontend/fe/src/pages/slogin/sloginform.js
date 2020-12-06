@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Login extends React.Component {
+export default class StudentLogin extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -24,7 +24,9 @@ export default class Login extends React.Component {
                 <br></br>
                 <h3>Password</h3>
                 <input type="text" name="password" placeholder="Password" onChange={this.handleChange} />
-                <h3> {this.state.email} {this.state.password} </h3>
+                <br></br>
+                <input type="text" name="code" placeholder="Code" onChange={this.handleChange} />
+                <h3> {this.state.username} {this.state.password} {this.state.code} </h3>
             </form>
         )
     }
