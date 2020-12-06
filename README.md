@@ -1,7 +1,7 @@
 # HackDuke 2020 Propel Education: Connecting students with guidance counselors. 
 
 ### Description
-**Project Name:** Propel Education. Ambitious high schoool students need all the support they can get. Our web application serves as a platform where students can enter their goals, and counselors can seamlessly track them. Failiing to plan is planning to fail—Propel Education empowers students and counselors to plan together. <br>
+**Project Name:** Propel Education. Ambitious high school students need all the support they can get. Our web application serves as a platform where students can enter their goals, and counselors can seamlessly track them. Failing to plan is planning to fail—Propel Education empowers students and counselors to plan together. <br>
 **Team Members:** Enter team members<br>
 **Built With:** Django (backend) and React (frontend) <br>
 
