@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
-from .models import AppUser, Student, Counselor, Goal
-from goals.models import Track
+from .models import *
 
 import json
 
@@ -17,7 +16,7 @@ class CounselorSerializer(serializers.ModelSerializer):
         fields = ['id', 'code']
 
 
-class TrackSerializer(serializers.ModelSerializer):
+class TrackSerializerNoGoals(serializers.ModelSerializer):
     #counselor = CounselorSerializer(many=True, read_only=True)
 
     class Meta:
@@ -47,7 +46,29 @@ class GoalSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
         return Goal.objects.create(student=Student.objects.get(user=user), **validated_data)
 
+
 class CounselorStudentGoalSerializer(GoalSerializer):
     def create(self, validated_data):
         student = Student.objects.get(id=self.context['view'].kwargs['pk'])
         return Goal.objects.create(student=student, **validated_data)
+
+
+class TemplateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GoalTemplate
+        fields = ('title', 'description')
+
+
+class CounselorTrackTemplateSerializer(TemplateSerializer):
+    def create(self, validated_data):
+        track = Track.objects.get(id=self.context['view'].kwargs['pk'])
+        user = self.context['view'].request.user
+        return track.add_new_template(**validated_data)
+
+
+class TrackSerializerWithGoals(serializers.ModelSerializer):
+    templates = TemplateSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Track
+        fields = ('title', 'description', 'templates')
