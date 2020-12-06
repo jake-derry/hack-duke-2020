@@ -1,16 +1,14 @@
 import React from "react" 
+import { Container } from "react-bootstrap";
 import {Link} from "react-router-dom"
+import Goals from "./students"
 
 function SPageScreen() {
     return (
-        <div>
+        <Container>
             <h1>Student Page</h1>
-            <ul>
-            <Link to='/slogin'>
-                <li>Log Out</li>
-            </Link>
-            </ul>
-        </div>               
+            <Goals/>
+        </Container>
     );  
 }
 

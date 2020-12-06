@@ -1,11 +1,13 @@
 import React from "react"
-import StudentLogin from './sloginform'
+import { Container } from "react-bootstrap";
+import Login from "../../components/loginform";
 
 function Sloginscreen() {
     return (
-        <div>
-            <div> <StudentLogin /> </div>
-        </div>
+        <Container>
+            <h1>Login</h1>
+            <Login to="/spage"/>
+        </Container>
     );
 }             
 
