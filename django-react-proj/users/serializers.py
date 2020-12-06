@@ -16,17 +16,21 @@ class CounselorSerializer(serializers.ModelSerializer):
 
 
 class TrackSerializer(serializers.ModelSerializer):
+    counselor = CounselorSerializer(many=True, read_only=True)
+
     class Meta:
         model = Track
-        fields = ['title', 'description']
+        fields = ['pk', 'title', 'description', 'counselor']
 
+    def create(self, validated_data):
+        """
+        Create and return a new Track instance, given the validated data.
+        """
+        user = self.context['request'].user
+        t = Track.objects.create(**validated_data)
+        Counselor.objects.get(user=user).tracks.add(t)
+        return t
 
-class CounselorTrackSerializer(serializers.ModelSerializer):
-    tracks = TrackSerializer(many=True, read_only=False)
-
-    class Meta:
-        model = Counselor
-        fields = ['tracks']
 
 class GoalSerializer(serializers.ModelSerializer):
     class Meta:

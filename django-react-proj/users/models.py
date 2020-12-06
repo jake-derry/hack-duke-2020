@@ -54,7 +54,7 @@ class AppUser(AbstractUser):
 class Counselor(models.Model):
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, null=True)
     code = models.CharField(max_length=10, null=True)
-    tracks = models.ManyToManyField(Track)
+    tracks = models.ManyToManyField(Track, related_name="counselor")
 
     def get_students(self):
         return self.students.all()
