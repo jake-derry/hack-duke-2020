@@ -6,6 +6,7 @@ from users.models import *
 from users.serializers import *
 from .permissions import *
 
+
 class CounselorView(APIView):
     """
     List all snippets, or create a new snippet.
@@ -136,3 +137,17 @@ class CounselorGoalRUD(generics.RetrieveUpdateDestroyAPIView):
     def get_queryset(self, *args, **kwargs):
         student = Student.objects.get(id=self.kwargs['pk2'])
         return Goal.objects.filter(student=student)
+
+class StudentChooseTrack(APIView):
+
+    def get(self, request):
+        student = Student.objects.get(user=request.user)
+        serializer = StudentTrack(student)
+        return Response(serializer.data)
+
+    def patch(self, request, **validated_data):
+        track = Track.objects.get(track=validated_data['track'])
+        student = Student.objects.get(user=request.user)
+        student.track = track
+        serializer = StudentTrack(student)
+        return Response(serializer.data)

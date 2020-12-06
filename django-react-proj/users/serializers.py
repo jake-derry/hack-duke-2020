@@ -33,6 +33,14 @@ class TrackSerializerNoGoals(serializers.ModelSerializer):
         return t
 
 
+class StudentTrack(serializers.ModelSerializer):
+    track = TrackSerializerNoGoals(many=True)
+
+    class Meta:
+        model = Student
+        fields = ['track']
+
+
 class GoalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Goal

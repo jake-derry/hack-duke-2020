@@ -94,6 +94,7 @@ class Goal(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE, null=True, related_name='goals')
     completed = models.BooleanField(default=False)
 
+
 class GoalTemplate(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
