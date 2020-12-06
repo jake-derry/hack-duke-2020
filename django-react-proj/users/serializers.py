@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from .models import Student, Counselor, Goal
-
+from goals.models import Track
 
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,6 +14,19 @@ class CounselorSerializer(serializers.ModelSerializer):
         model = Counselor
         fields = ['code']
 
+
+class TrackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Track
+        fields = ['title', 'description']
+
+
+class CounselorTrackSerializer(serializers.ModelSerializer):
+    tracks = TrackSerializer(many=True, read_only=False)
+
+    class Meta:
+        model = Counselor
+        fields = ['tracks']
 
 class GoalSerializer(serializers.ModelSerializer):
     class Meta:

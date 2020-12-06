@@ -3,6 +3,7 @@ import string
 
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
+#from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from goals.models import Track, GoalTemplate
 
@@ -53,6 +54,7 @@ class AppUser(AbstractUser):
 class Counselor(models.Model):
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, null=True)
     code = models.CharField(max_length=10, null=True)
+    tracks = models.ManyToManyField(Track)
 
     def get_students(self):
         return self.students.all()
