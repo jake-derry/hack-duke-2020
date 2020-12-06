@@ -16,11 +16,11 @@ class CounselorSerializer(serializers.ModelSerializer):
 
 
 class TrackSerializer(serializers.ModelSerializer):
-    counselor = CounselorSerializer(many=True, read_only=True)
+    #counselor = CounselorSerializer(many=True, read_only=True)
 
     class Meta:
         model = Track
-        fields = ['pk', 'title', 'description', 'counselor']
+        fields = ['pk', 'title', 'description']
 
     def create(self, validated_data):
         """
