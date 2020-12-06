@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import axios from 'axios'
+import { Table } from "react-bootstrap";
 
 const list = [
     {
@@ -21,7 +22,10 @@ class Students extends Component {
 
         let data;
 
-        axios.get('http://127.0.0.1:8000/api/goals/')
+        axios.get('http://127.0.0.1:8000/api/goals/', { headers: { 
+          'credentials': 'true',
+          'Authorization': 'Token ' + localStorage.getItem('token'), 
+          'Access-Control-Allow-Headers': '*'}})
         .then(res => {
             data = res.data;
             this.setState({
@@ -34,15 +38,22 @@ class Students extends Component {
 
     render() {
         return (
-            <div>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <td>Title</td>
+                  <td>Description</td>
+                </tr>
+              </thead>
+              <tbody>
                 {this.state.details.map(item => (
-                <div key={item.pk} >
-                    <h1>{item.title}</h1>
-                    <span>{item.description}</span>
-                </div>
+                <tr key={item.pk} >
+                  <td>{item.title}</td>
+                  <td>{item.description}</td>
+                </tr>
                 ))}
-                <span>Hello</span>
-            </div>
+              </tbody>
+            </Table>
         );
     }
 }
