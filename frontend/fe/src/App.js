@@ -9,6 +9,7 @@ import Testpage from './pages/testpage/testpage.js'
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import CounselorSignup from './pages/csignup/csignup';
 import StudentSignup from './pages/ssignup/ssignup';
+import SPageScreen from './pages/spage/spagescreen';
          
 function App() {
                            
@@ -24,6 +25,8 @@ function App() {
         <Route path="/testpage" component = {Testpage} />
         <Route path="/csignup" component = {CounselorSignup}/>
         <Route path="/ssignup" component = {StudentSignup}/>
+        <Route path="/spage" component = {SPageScreen}/>
+
       </Switch>          
     </BrowserRouter>
   );         
