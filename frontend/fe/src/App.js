@@ -7,6 +7,8 @@ import Clogin from './pages/clogin/clogin.js'
 import Slogin from './pages/slogin/slogin.js'
 import Testpage from './pages/testpage/testpage.js'
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import CounselorSignup from './pages/csignup/csignup';
+import StudentSignup from './pages/ssignup/ssignup';
          
 function App() {
                            
@@ -20,6 +22,8 @@ function App() {
         <Route path="/slogin" component = {Slogin} />
         <Route path="/clogin" component = {Clogin} />
         <Route path="/testpage" component = {Testpage} />
+        <Route path="/csignup" component = {CounselorSignup}/>
+        <Route path="/ssignup" component = {StudentSignup}/>
       </Switch>          
     </BrowserRouter>
   );         
