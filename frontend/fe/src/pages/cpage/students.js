@@ -1,11 +1,32 @@
-import React from "react"
+import React, { Component } from "react"
+import axios from 'axios'
 
-function Students() {
-    return (
-        <div>
-            <p>Students go here</p>
-        </div>
-    );
+class Counselor extends Component {
+    state = {
+        details : []
+    };
+
+    componentDidMount() {
+
+        let data;
+
+        axios.get('')
+        .then(res => {
+            data = res.data;
+            this.setState({
+                details : data
+            });
+        })
+        .catch(err => {})
+    }
+    
+
+    render() {
+        return (
+            <div>
+            </div>
+        );
+    }
 }
 
-export default Students
+export default Counselor;
