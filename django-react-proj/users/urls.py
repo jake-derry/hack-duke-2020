@@ -11,5 +11,5 @@ urlpatterns = [
     path('api/goals/<int:pk>', views.GoalRetrieveUpdateDestroy.as_view()),
     path('api/students/me/goals/', views.StudentGoalListCreate.as_view()),
     path('api/students/me/goals/<int:pk>', views.StudentGoalRetrieveUpdateDestroy.as_view()),
-    path('api/students/<int:pk>', views.CounselorStudentGoalsLC.as_view()),
+    path('api/students/<int:pk>/goals/', views.CounselorStudentGoalsLC.as_view()),
 ]

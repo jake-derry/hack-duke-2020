@@ -1,17 +1,23 @@
-import React, { Component } from "react" 
-import StudentEntry from "./student_entry";
-import axios from 'axios'
+import axios from "axios";
+import React from "react"
 import { Table } from "react-bootstrap";
+import {useParams} from "react-router-dom";
+import Goal from "../../components/goal";
 
-class ListStudents extends Component {
+export default function StudentGoals (props) {
+    const {studentId} = useParams()
+    return <StudentGoalsRetrieved studentId={studentId}/>
+}
+
+class StudentGoalsRetrieved extends React.Component {
   state = {
-      students : []
+      goals : []
   };
 
-  componentDidMount(props) {
+  componentDidMount() {
 
       let data;
-      var apiUrl = "http://127.0.0.1:8000/api/counselors/me/students/"
+      var apiUrl = `http://127.0.0.1:8000/api/students/${this.props.studentId}/goals/`
 
       axios.get(apiUrl, { headers: { 
           'credentials': 'true',
@@ -21,7 +27,7 @@ class ListStudents extends Component {
           data = res.data;
           console.log(data)
           this.setState({
-              students : data
+              goals : data
           });
       })
       .catch(err => {})
@@ -31,10 +37,11 @@ class ListStudents extends Component {
   render() {
       return (
         <div>
+          <h1>Their goals</h1>
           <Table striped bordered hover>
             <tbody>
-              {this.state.students.map(student => (
-                  <StudentEntry id={student.id} counselor={student.counselor}/>
+              {this.state.goals.map(goal => (
+                  <Goal title={goal.title} description={goal.description}/>
                 ))}
             </tbody>
           </Table>
@@ -42,5 +49,3 @@ class ListStudents extends Component {
       );
   }
 }
-
-export default ListStudents
