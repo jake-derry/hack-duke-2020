@@ -43,4 +43,4 @@ class CounselorGoalAccess(permissions.BasePermission):
         user = view.request.user
         if not user.is_counselor:
             return user.is_counselor
-        return (Goal.objects.get(pk=pk).student.counselor == Counselor.objects.get(user=user))
+        return Goal.objects.get(pk=pk).student.counselor == Counselor.objects.get(user=user)

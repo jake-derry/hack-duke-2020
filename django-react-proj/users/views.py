@@ -149,8 +149,13 @@ class StudentChooseTrack(APIView):
 
     def patch(self, request):
         payload = json.loads(request.body)
-        track = Track.objects.get(track=payload['track'])
+        id = payload['track']['id']
+        id = int(id)
+        track = Track.objects.get(id=id)
         student = Student.objects.get(user=request.user)
         student.track = track
+        track.add_all_goals(student=student)
+        student.save()
         serializer = StudentTrack(student)
+        print("working")
         return Response(serializer.data)

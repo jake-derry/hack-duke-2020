@@ -34,7 +34,7 @@ class TrackSerializerNoGoals(serializers.ModelSerializer):
 
 
 class StudentTrack(serializers.ModelSerializer):
-    track = TrackSerializerNoGoals(many=True)
+    track = TrackSerializerNoGoals()
 
     class Meta:
         model = Student
