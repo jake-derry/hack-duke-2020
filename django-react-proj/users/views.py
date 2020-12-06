@@ -7,6 +7,7 @@ from goals.models import Track
 from users.serializers import CounselorSerializer, StudentSerializer, GoalSerializer, TrackSerializer, CounselorStudentGoalSerializer
 from .permissions import CounselorAccessPermission
 
+
 class CounselorView(APIView):
     """
     List all snippets, or create a new snippet.
@@ -17,6 +18,14 @@ class CounselorView(APIView):
         return Response(serializer.data)
 
 
+class CounselorStudentView(generics.ListAPIView):
+    serializer_class = StudentSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return Student.objects.filter(counselor=Counselor.objects.get(user=user))
+
+
 class StudentView(APIView):
     """
     List all snippets, or create a new snippet.
@@ -25,6 +34,7 @@ class StudentView(APIView):
         student = Student.objects.get(user=request.user)
         serializer = StudentSerializer(student)
         return Response(serializer.data)
+
 
 
 class CounselorTrackLC(generics.ListCreateAPIView):
@@ -74,7 +84,7 @@ class StudentGoalRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
         user = self.request.user
         return Goal.objects.filter(student=Student.objects.get(user=user))
 
-
+      
 class CounselorStudentsList(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = StudentSerializer
@@ -91,3 +101,4 @@ class CounselorStudentGoalsLC(generics.ListCreateAPIView):
     def get_queryset(self, *args, **kwargs):
         student = Student.objects.get(id=self.kwargs['pk'])
         return Goal.objects.filter(student=student)
+
