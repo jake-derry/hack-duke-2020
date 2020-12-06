@@ -13,6 +13,7 @@ import SPageScreen from './pages/spage/spagescreen';
 import CPageScreen from './pages/cpage/cpagescreen';
 import StudentGoals from './pages/studentgoals/studentgoals';
 import AddTrack from './pages/addTrack/add_track';
+import TrackGoals from './pages/trackGoals/trackGoals';
          
 function App() {
                            
@@ -33,6 +34,10 @@ function App() {
         <Route path="/students/:studentId/goals" component = {(props) => (
                 <StudentGoals
                   studentId={props.match.params.studentId} />
+              )}/>
+        <Route path="/tracks/:trackId/goals" component = {(props) => (
+                <TrackGoals
+                  trackId={props.match.params.trackId} />
               )}/>
         <Route path="/addTrack" component = {AddTrack}/>
 

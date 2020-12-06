@@ -33,6 +33,8 @@ render() {
                 <div class="col-lg-3 bg-light">
                   <h2>Groups</h2>
                   {groups}
+                  <h2>Your code</h2>
+                  
                 </div>
                 <div class="col-lg-9">
                     <h1>Your students</h1>

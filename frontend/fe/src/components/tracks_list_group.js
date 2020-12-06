@@ -36,7 +36,7 @@ class TrackListGroup extends Component {
               <tr>
                 <td>{track.title}</td>
                 <td>{track.description}</td>
-                <td><Button>See goals</Button></td>
+                <td><Button href={`/tracks/${track.pk}/goals`}>See goals</Button></td>
               </tr>
               ))}
           </tbody>
