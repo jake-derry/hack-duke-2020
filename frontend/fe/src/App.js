@@ -10,6 +10,8 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import CounselorSignup from './pages/csignup/csignup';
 import StudentSignup from './pages/ssignup/ssignup';
 import SPageScreen from './pages/spage/spagescreen';
+import CPageScreen from './pages/cpage/cpagescreen';
+import StudentGoals from './pages/studentgoals/studentgoals';
          
 function App() {
                            
@@ -26,6 +28,11 @@ function App() {
         <Route path="/csignup" component = {CounselorSignup}/>
         <Route path="/ssignup" component = {StudentSignup}/>
         <Route path="/spage" component = {SPageScreen}/>
+        <Route path="/cpage" component = {CPageScreen}/>
+        <Route path="/students/:studentId/goals" component = {(props) => (
+                <StudentGoals
+                  studentId={props.match.params.studentId} />
+              )}/>
 
       </Switch>          
     </BrowserRouter>

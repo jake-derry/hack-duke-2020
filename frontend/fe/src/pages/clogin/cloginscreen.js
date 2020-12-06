@@ -9,7 +9,7 @@ function Cloginscreen() {
 
     return (
         <div>
-            <div> <Login /> </div>
+            <div> <Login to='/cpage'/> </div>
         </div>
     );
 }             
