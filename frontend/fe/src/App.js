@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 import HomeNav from './pages/homepage/HomeNav.js'
@@ -13,14 +13,15 @@ function App() {
     <BrowserRouter>
       <div className = "App">
         <HomeNav />
-      </div>
-      <Switch>
+      </div>       
+      <Switch>               
         <Route path="/" exact component = {Homescreen} />
         <Route path="/slogin" component = {Slogin} />
         <Route path="/clogin" component = {Clogin} />
-      </Switch>
+      </Switch>          
     </BrowserRouter>
-  );
+  );         
 }
 
 export default App;
+        

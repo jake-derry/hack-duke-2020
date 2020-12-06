@@ -9,3 +9,4 @@ function Sloginscreen() {
 }
 
 export default Sloginscreen
+

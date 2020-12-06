@@ -8,10 +8,10 @@ function Cloginscreen() {
             <p>This is counselor login screen</p>
             <div> <Login /> </div>
             <Link to='/cpage'>
-                <button>Submit</button>
+                <button type="submit" class="btn btn-success">Submit</button>
             </Link>
         </div>
     );
-}
+}             
 
 export default Cloginscreen
