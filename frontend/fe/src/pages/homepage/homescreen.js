@@ -1,7 +1,6 @@
 import React from "react"
-import image1 from "./duke.png"
 import '../../App.css'
-import bullseye from '../clogin/bullseye.png'
+import rocket from '../clogin/rocket.png'
 
 function Homescreen() {
     return (
@@ -9,8 +8,8 @@ function Homescreen() {
 
             <div style={{textAlign: 'center'}} className="introtext" class="jumbotron">
                 <br></br>
-                <h1>Welcome to our project</h1>
-                <br></br>
+                <h1>Welcome to Propel Education</h1>
+                <hr></hr>
                 <h3>We help connect students with guidance counselors to help councelors reach a student's goals</h3>
                 <br></br>
             </div>
@@ -28,7 +27,7 @@ function Homescreen() {
                             <p class="lead"> Goals assessed in real time</p>
                         </div>
                         <div class="col-lg-6">
-                            <img src={bullseye} style={{height: '100%' , width: '60%'}}className="homeimg" alt="logo"/>
+                            <img src={rocket} style={{height: '85%' , width: '50%'}}className="homeimg" alt="logo"/>
                         </div>
                     </div>
                 </div>
@@ -46,6 +45,7 @@ function Homescreen() {
                         <hr></hr>
                         <p>Enter in goals</p>
                         <p>Get feedback</p>
+                        <p>Edit goals</p>
                     </div>
                     <div class="col-sm">
                         <h4>Counselors</h4>
