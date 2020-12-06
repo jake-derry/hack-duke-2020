@@ -1,19 +1,8 @@
 import React, { Component } from "react"
 import axios from 'axios'
-import { Table } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
-const list = [
-    {
-      "title": "my first goal",
-      "description": "my first goal's description"
-    },
-    {
-      "title": "another goal!",
-      "description": "this is another goal"
-    }
-];
-
-class Students extends Component {
+class Goals extends Component {
     state = {
         details : []
     };
@@ -38,24 +27,17 @@ class Students extends Component {
 
     render() {
         return (
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <td>Title</td>
-                  <td>Description</td>
-                </tr>
-              </thead>
-              <tbody>
+              <div>
                 {this.state.details.map(item => (
-                <tr key={item.pk} >
-                  <td>{item.title}</td>
-                  <td>{item.description}</td>
-                </tr>
+                <Card key={item.pk}>
+                  <Card.Title>{item.title}</Card.Title>
+                  <Card.Body>{item.description}</Card.Body>
+                  <Button variant="primary">Resolve</Button>
+                </Card>
                 ))}
-              </tbody>
-            </Table>
+              </div>
         );
     }
 }
 
-export default Students;
+export default Goals;
