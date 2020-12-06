@@ -111,6 +111,15 @@ class CounselorStudentsList(generics.ListAPIView):
         return Student.objects.filter(counselor=Counselor.objects.get(user=user))
 
 
+class CounselorStudentRD(generics.RetrieveDestroyAPIView):
+    permission_classes = [permissions.IsAuthenticated, CounselorStudentAccess]
+    serializer_class = StudentSerializer
+
+    def get_queryset(self):
+        counselor = Counselor.objects.get(user=self.request.user)
+        return Student.objects.filter(counselor=counselor)
+
+
 class CounselorStudentGoalsLC(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated, CounselorStudentAccess]
     serializer_class = CounselorStudentGoalSerializer
