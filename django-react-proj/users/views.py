@@ -85,10 +85,8 @@ class CounselorStudentsListCreate(generics.ListCreateAPIView):
 
 
 class CounselorStudentGoalsLC(generics.ListCreateAPIView):
-    permission_classes = [permissions.IsAuthenticated]  # Should be changed to CounselorAccessPermission once
-    # implemented
-    serializer_class = GoalSerializer  # Should be changed to CounselorStudentGoalSerializer
-    # once implemented
+    permission_classes = [permissions.IsAuthenticated, CounselorAccessPermission]
+    serializer_class = CounselorStudentGoalSerializer
 
     def get_queryset(self, *args, **kwargs):
         student = Student.objects.get(id=self.kwargs['pk'])

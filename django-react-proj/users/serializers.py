@@ -3,6 +3,7 @@ from rest_framework import serializers
 from .models import AppUser, Student, Counselor, Goal
 from goals.models import Track
 
+import json
 
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -36,7 +37,7 @@ class TrackSerializer(serializers.ModelSerializer):
 class GoalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Goal
-        fields = ('title', 'description', 'completed')
+        fields = ('id', 'title', 'description', 'completed')
 
     def create(self, validated_data):
         """
@@ -45,8 +46,7 @@ class GoalSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
         return Goal.objects.create(student=Student.objects.get(user=user), **validated_data)
 
-
 class CounselorStudentGoalSerializer(GoalSerializer):
     def create(self, validated_data):
-        student = Student.objects.get(id=self.context['pk'])
+        student = Student.objects.get(id=self.context['view'].kwargs['pk'])
         return Goal.objects.create(student=student, **validated_data)
