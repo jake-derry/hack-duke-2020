@@ -1,11 +1,12 @@
 import React from "react" 
-import {Link} from "react-router-dom"
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 function StudentEntry(props) {
     return (
-        <div>
-          <h1>JEEZ {props.counselor}</h1>
-        </div>
+      <tr>
+        <td>{props.counselor}</td>
+      </tr>
     );  
 }
 
