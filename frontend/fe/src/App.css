@@ -1,3 +1,5 @@
+@import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
+
 .App {
   text-align: center;
 }
@@ -63,8 +65,82 @@
   color: white;
 }
 
-.introtext {
+.cloginnav:hover {
   color: blue;
-  background-color: orange;
-  border-style: ridge;
 }
+
+.introtext {
+  color: black;
+  background-color: rgb(254, 197, 113);
+}
+
+.introtext:hover {
+  color: blue;
+}
+
+.homecolor {
+  background-image: linear-gradient(30deg, rgb(206, 125, 125), rgb(46, 46, 227));
+}
+
+.loginbox {
+  width: 285px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+.loginbox h1{
+  float: left;
+  font-size: 38px;
+  border-bottom: 6px solid rgb(11, 87, 58);
+  margin-bottom: 50px;
+  padding: 13px 0;
+}
+
+.form-group {
+  width: 100%;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  border-bottom: 1px solid rgb(11, 87, 58);
+}
+
+.form-group i{
+  width: 26px;
+  float: left;
+  text-align: center;
+}
+
+.form-group input {
+  border: none;
+  outline: none;
+  background: none;
+  color: black;
+  font-size: 18px;
+  width: 80%;
+}
+
+.submit-group submit{
+  width: 100%;
+  background: none;
+  border: 2px solid;
+  color: black;
+  padding: 5px;
+}
+
+.clogincss {
+  background-color: red;
+}
+
+.hnav h1:hover, li:hover {
+  color: blue;
+  font-size: larger;
+}
+
+.row {
+  height: 82vh;
+}
+
+

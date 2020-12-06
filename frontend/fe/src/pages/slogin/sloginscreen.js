@@ -9,7 +9,6 @@ function Sloginscreen() {
             <Login to="/spage"/>
         </Container>
     );
-}
+}             
 
 export default Sloginscreen
-
