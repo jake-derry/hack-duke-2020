@@ -8,10 +8,9 @@ import { Container } from "react-bootstrap";
 function Cloginscreen() {
 
     return (
-        <Container>
-          <h1>Login</h1>
-          <Login to="/cpage"/>
-        </Container>
+        <div>
+            <div> <Login /> </div>
+        </div>
     );
 }             
 
